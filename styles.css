@@ -18,94 +18,12 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
-    overflow-y: auto;
-    transition: transform 0.3s ease;
+    z-index: 1000;
+    transition: width 0.3s ease;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    height: calc(100% - 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.sidebar li {
-    margin: 10px 0;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.sidebar a.active, .sidebar a:hover {
-    background-color: #34495e;
-}
-
-.sidebar svg {
-    stroke: white;
-    width: 24px;
-    height: 24px;
-}
-
-.toggle-sidebar {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-main {
-    flex: 1;
-    margin-left: 250px;
-    padding: 20px;
-}
-
-header {
-    display:ци
- }System: Il semble que le contenu de `styles.css` ait été coupé. Je vais compléter le fichier `styles.css` et fournir le fichier `script.js` mis à jour pour répondre à vos exigences : supprimer le défilement, afficher une seule section à la fois, fixer la barre latérale, utiliser des icônes SVG, et ajouter un bouton de déconnexion. Les fichiers utilisent les mêmes `artifact_id` que précédemment, car il s\'agit d\'une mise à jour des artefacts existants.
-
-### styles.css
-Ce fichier CSS est mis à jour pour :
-- Fixer la barre latérale avec `position: fixed`.
-- Masquer les sections non actives avec `display: none`.
-- Styliser les icônes SVG.
-- Assurer un design responsive avec une barre latérale rétractable sur mobile.
-- Supprimer le défilement fluide (`scroll-behavior: smooth`), car il n\'est plus nécessaire.
-
-<xaiArtifact artifact_id="ec688221-d58e-48ed-8324-a49d5ac2312f" artifact_version_id="6f7b1d92-7d85-4bf9-8d76-6bff72364312" title="styles.css" contentType="text/css">
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-.container {
-    display: flex;
-    min-height: 100vh;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    overflow-y: auto;
-    transition: transform 0.3s ease;
+.sidebar.collapsed {
+    width: 60px;
 }
 
 .sidebar ul {
@@ -135,6 +53,10 @@ body {
     border-radius: 5px;
 }
 
+.sidebar.collapsed a span {
+    display: none;
+}
+
 .sidebar a.active, .sidebar a:hover {
     background-color: #34495e;
 }
@@ -162,6 +84,11 @@ main {
     flex: 1;
     margin-left: 250px;
     padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.collapsed ~ main {
+    margin-left: 60px;
 }
 
 header {
@@ -275,11 +202,19 @@ body.dark #themeToggle svg {
 /* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
-        transform: translateX(-100%);
+        width: 60px;
     }
 
     .sidebar.active {
-        transform: translateX(0);
+        width: 250px;
+    }
+
+    .sidebar a span {
+        display: none;
+    }
+
+    .sidebar.active a span {
+        display: inline;
     }
 
     .toggle-sidebar {
@@ -287,6 +222,10 @@ body.dark #themeToggle svg {
     }
 
     main {
-        margin-left: 0;
+        margin-left: 60px;
+    }
+
+    .sidebar.active ~ main {
+        margin-left: 250px;
     }
 }
