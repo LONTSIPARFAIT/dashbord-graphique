@@ -32,6 +32,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Section Navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = link.getAttribute('data-section');
+
+            // Hide all sections and remove active class from links
+            sections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Show selected section and highlight link
+            document.getElementById(sectionId).classList.add('active');
+            link.classList.add('active');
+
+            // Handle logout
+            if (sectionId === 'logout') {
+                alert('Vous avez été déconnecté.');
+            }
+        });
+    });
+
     // Sidebar Toggle
     const sidebar = document.getElementById('sidebar');
     const toggleSidebarButton = document.getElementById('toggleSidebar');
@@ -42,13 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle
     const themeToggleButton = document.getElementById('themeToggle');
     themeToggleButton.addEventListener('click', () => {
-        const icon = themeToggleButton.querySelector('i');
+        const icon = themeToggleButton.querySelector('svg');
         document.body.classList.toggle('dark');
         if (document.body.classList.contains('dark')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
+            icon.innerHTML = '<path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0z"></path>';
             themeToggleButton.setAttribute('aria-label', 'Passer au thème clair');
         } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
+            icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
             themeToggleButton.setAttribute('aria-label', 'Passer au thème sombre');
         }
     });

@@ -82,7 +82,7 @@ Ce fichier CSS est mis à jour pour :
 - Masquer les sections non actives avec `display: none`.
 - Styliser les icônes SVG.
 - Assurer un design responsive avec une barre latérale rétractable sur mobile.
-- Supprimer le défilement fluide (`scroll-behavior: smooth`), car il n'est plus nécessaire.
+- Supprimer le défilement fluide (`scroll-behavior: smooth`), car il n\'est plus nécessaire.
 
 <xaiArtifact artifact_id="ec688221-d58e-48ed-8324-a49d5ac2312f" artifact_version_id="6f7b1d92-7d85-4bf9-8d76-6bff72364312" title="styles.css" contentType="text/css">
 body {
