@@ -1,0 +1,85 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord E-Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <button class="toggle-sidebar" id="toggleSidebar" aria-label="Basculer la barre latérale"><i class="fas fa-bars"></i></button>
+            <ul>
+                <li><a href="#statistics" aria-label="Voir les statistiques"><i class="fas fa-chart-bar"></i> Statistiques</a></li>
+                <li><a href="#charts" aria-label="Voir les graphiques"><i class="fas fa-chart-pie"></i> Graphiques</a></li>
+                <li><a href="#courses" aria-label="Voir les cours"><i class="fas fa-book"></i> Cours</a></li>
+                <li><a href="#students" aria-label="Voir les étudiants"><i class="fas fa-user-graduate"></i> Étudiants</a></li>
+                <li><a href="#settings" aria-label="Voir les paramètres"><i class="fas fa-cog"></i> Paramètres</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <header>
+                <h1>Tableau de Bord E-Learning</h1>
+                <button id="themeToggle" aria-label="Basculer entre thème clair et sombre">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </header>
+
+            <section id="statistics">
+                <h2>Statistiques Numériques</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <h3>Moyenne des Notes : <span id="average-score">85</span></h3>
+                    </div>
+                    <div class="stat">
+                        <h3>Taux de Réussite : <span id="pass-rate">75%</span></h3>
+                    </div>
+                    <div class="stat">
+                        <h3>Nombre d'Étudiants : <span id="student-count">150</span></h3>
+                    </div>
+                </div>
+            </section>
+
+            <section id="charts">
+                <h2>Graphiques</h2>
+                <canvas id="scoreChart"></canvas>
+            </section>
+
+            <section id="courses">
+                <h2>Liste des Cours</h2>
+                <ul class="course-list">
+                    <li><a href="#">Mathématiques Avancées</a></li>
+                    <li><a href="#">Physique Moderne</a></li>
+                    <li><a href="#">Programmation Web</a></li>
+                    <li><a href="#">Gestion de Projet</a></li>
+                </ul>
+            </section>
+
+            <section id="students">
+                <h2>Étudiants Inscrits</h2>
+                <ul class="student-list">
+                    <li>Jean Dupont</li>
+                    <li>Marie Curie</li>
+                    <li>Albert Einstein</li>
+                    <li>Isaac Newton</li>
+                </ul>
+            </section>
+
+            <section id="settings">
+                <h2>Paramètres du Compte</h2>
+                <p>Modifiez vos paramètres de compte ici.</p>
+                <button class="btn">Modifier le Profil</button>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2025 École XYZ. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
